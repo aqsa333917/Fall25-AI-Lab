@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Grade Predictor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Student Grade Predictor</h1>
+
+    <div>
+        <h2>1. Upload Dataset</h2>
+        <input type="file" id="fileInput">
+    </div>
+
+    <div>
+        <h2>2. Univariate Analysis</h2>
+        <label for="uni-column">Select Column:</label>
+        <select id="uni-column">
+            <option value="Grades">Grades</option>
+            <option value="Stu_Hours">Study Hours</option>
+            <option value="Extra_Hours">Extracurricular Hours</option>
+            <option value="Gender">Gender</option>
+        </select>
+        <button onclick="runUnivariate()">Plot Univariate</button>
+    </div>
+
+    <div>
+        <h2>3. Bivariate Analysis</h2>
+        <label for="x-col">X-Axis:</label>
+        <select id="x-col">
+            <option value="Stu_Hours">Study Hours</option>
+            <option value="Extra_Hours">Extracurricular Hours</option>
+        </select>
+
+        <label for="y-col">Y-Axis:</label>
+        <select id="y-col">
+            <option value="Grades">Grades</option>
+        </select>
+
+        <button onclick="runBivariate()">Plot Bivariate</button>
+    </div>
+
+    <div>
+        <h2>4. Train & Predict</h2>
+        <label for="features">Select Features (comma separated):</label>
+        <input type="text" id="features" placeholder="e.g., Stu_Hours,Extra_Hours">
+
+        <label for="target">Target Column:</label>
+        <input type="text" id="target" value="Grades">
+
+        <button onclick="trainModel()">Train Model</button>
+        <button onclick="predict()">Predict</button>
+    </div>
+
+    <div>
+        <h2>5. Save / Load Model</h2>
+        <button onclick="saveModel()">Save Trained Model</button>
+        <button onclick="loadModel()">Load Model</button>
+    </div>
+
+    <div>
+        <h2>Output</h2>
+        <div id="plot-container">Results will appear here.</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
